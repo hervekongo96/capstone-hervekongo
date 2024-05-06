@@ -35,7 +35,7 @@ function Ladingcard() {
                 height: '100%',
               }}
               cover={
-                item.profile1 ? (
+                item.profile2 ? (
                   <div
                     style={{
                       position: 'relative',
@@ -44,7 +44,7 @@ function Ladingcard() {
                     }}
                   >
                     <img
-                      src={item.profile1}
+                      src={item.profile2}
                       alt="example"
                       style={{
                         position: 'absolute',
@@ -87,7 +87,7 @@ function Ladingcard() {
               onClick={() => handleCardClick(item)}
             >
               <Meta
-                avatar={<Avatar src={item.profile2 || item.profile3 || ''} />}
+                avatar={<Avatar src={item.profile3} />}
                 title={item.auteur}
                 description={`Type: ${item.type} | Date: ${new Date(item.date_publication).toLocaleString()}`}
               />
