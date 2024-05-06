@@ -1,0 +1,12 @@
+.actif-btn {
+    padding: 10px;
+    border-radius: 30px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .actif-btn:hover,
+  .actif-btn.active { 
+    background-color: rgba(114, 116, 119, 0.166);
+    border-color: rgb(245, 247, 249); 
+  }
