@@ -4,10 +4,12 @@ import { Avatar, Card } from 'antd';
 import { Row, Col } from 'antd';
 import { fetchAllData } from '../../api/apiRequest';
 
-function Ladingcard() {
+function Oeuvretypeweb() {
   const { Meta } = Card;
   const alldata = fetchAllData();
   const [selectedItem, setSelectedItem] = useState(null);
+
+  
 
   if (!Array.isArray(alldata) || alldata.length === 0) {
     return (
@@ -17,6 +19,8 @@ function Ladingcard() {
     );
   }
 
+  const webData = alldata.filter(item => item.type === 'web');
+
   const handleCardClick = (item) => {
     setSelectedItem(item);
   };
@@ -24,7 +28,7 @@ function Ladingcard() {
   return (
     <div>
       <Row gutter={[12, 12]} className="mt-6 mb-6">
-        {alldata.map((item, index) => (
+        {webData.map((item, index) => (
           <Col key={index} span={6} xs={24} sm={12} md={8} lg={6} xl={6}>
             <Card
               hoverable
@@ -161,4 +165,4 @@ function Ladingcard() {
   );
 }
 
-export default Ladingcard;
+export default Oeuvretypeweb;

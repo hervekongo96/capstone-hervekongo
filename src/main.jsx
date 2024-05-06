@@ -9,7 +9,6 @@ import Register from './components/pages/register.jsx'
 import Publish from './components/pages/publish.jsx'
 import Dashboardpage from './components/pages/dashboard.jsx'
 import SendMessages from './components/pages/sendMessages.jsx'
-
 import Registeradmin from './components/pages/registeradmin.jsx'
 import { AuthProvider } from './provider/authprovider.jsx'
 import GuestRoute from './provider/guestroute.jsx'
@@ -20,6 +19,11 @@ import Comptes from './components/pages/comptes.jsx'
 import UserProfile from './components/pages/userprofile.jsx'
 import Logout from './components/pages/logout.jsx'
 import Myoeuvres from './components/pages/myoeuvres.jsx'
+import Oeuvretypeweb from './components/filter/oeuvretypeweb.jsx'
+import Oeuvretypemobile from './components/filter/oeuvretypemobile.jsx'
+import Oeuvretypewordpress from './components/filter/oeuvretypewordpress.jsx'
+import Oeuvretypewireframe from './components/filter/oeuvretypewireframe.jsx'
+import Oeuvretypeprotype from './components/filter/oeuvretypeprotype.jsx'
 
 
 
@@ -93,23 +97,23 @@ const router = createBrowserRouter (
         },
         {
           path:"/web",
-          element:<Acard />
+          element:<Oeuvretypeweb />
         },
         {
           path:"/mobile",
-          element:<Acard />
+          element:<Oeuvretypemobile />
         },
         {
           path:"/wordpress",
-          element:<Acard />
+          element:<Oeuvretypewordpress />
         },
         {
           path:"/wireframe",
-          element:<Acard />
+          element:<Oeuvretypewireframe />
         },
         {
           path:"/prototype",
-          element:<Acard />
+          element:<Oeuvretypeprotype />
         }
       ]
     }
