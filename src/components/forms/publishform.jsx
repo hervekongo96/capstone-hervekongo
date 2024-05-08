@@ -11,6 +11,9 @@ function PublishForm() {
   const { user, token } = useAuth();
   const { register, handleSubmit, formState: { errors }, reset} = useForm();
 
+
+  console.log(user.profileImage);
+
   const fileInput1 = useRef(null);
   const fileInput2 = useRef(null);
   const fileInput3 = useRef(null);
@@ -50,6 +53,7 @@ function PublishForm() {
     data.profile3 = profilePic3;
     data.date_publication = new Date();
     data.CompteId = user.id;
+    data.profile_auteur = user.profileImage;
     data.like = 1,
     data.share = 1,
     publicationOevreByApprenant(data, token)

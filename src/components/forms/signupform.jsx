@@ -37,7 +37,7 @@ function SignUpForm() {
   }
 
   const onSubmit = (data) => {
-    data.profilePic = profilePic;
+    data.profileImage = profilePic;
     createCompteApprenant(data, navigate);
   }
 

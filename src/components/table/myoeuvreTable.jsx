@@ -49,9 +49,6 @@ function MyoeuvreTable() {
                             GITHUB
                           </th>
                           <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            FIGMA
-                          </th>
-                          <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             View
                           </th>
                         </tr>
@@ -70,9 +67,6 @@ function MyoeuvreTable() {
                               </td>
                               <td className="px-6 py-4 whitespace-nowrap">
                                 {item.githublink}
-                              </td>
-                              <td className="px-6 py-4 whitespace-nowrap">
-                                {item.figmalink}
                               </td>                  
                               <td className="px-6 py-4 whitespace-nowrap">
                                 <img src={item.profile1} alt="Avatar" className="h-10 w-10 rounded-full"/>
