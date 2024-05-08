@@ -17,7 +17,7 @@ function Oeuvretypemobile() {
     );
   }
 
-  const webData = alldata.filter(item => item.type === 'mobile');
+  const webData = alldata.filter(item => item.type ==='Mobile');
 
   if (webData.length === 0) {
     return (
