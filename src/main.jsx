@@ -24,7 +24,6 @@ import Oeuvretypemobile from './components/filter/oeuvretypemobile.jsx'
 import Oeuvretypewordpress from './components/filter/oeuvretypewordpress.jsx'
 import Oeuvretypewireframe from './components/filter/oeuvretypewireframe.jsx'
 import Oeuvretypeprotype from './components/filter/oeuvretypeprotype.jsx'
-import Carousel from './components/carousel/carosel.jsx'
 
 
 
@@ -45,10 +44,6 @@ const router = createBrowserRouter (
     {
       path:"/sign-admin",
       element:<Registeradmin />
-    },
-    {
-      path:"carousel",
-      element:<Carousel />
     },
     {
       path:"/dashboard",
