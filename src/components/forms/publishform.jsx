@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { FaCamera } from 'react-icons/fa'
+import React, { useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { FaCamera } from 'react-icons/fa';
 import axios from 'axios';
 import { useAuth } from '../../provider/authprovider';
 import { publicationOevreByApprenant } from '../../api/apiRequest';
@@ -10,9 +10,6 @@ function PublishForm() {
 
   const { user, token } = useAuth();
   const { register, handleSubmit, formState: { errors }, reset} = useForm();
-
-
-  console.log(user.profileImage);
 
   const fileInput1 = useRef(null);
   const fileInput2 = useRef(null);
@@ -63,7 +60,7 @@ function PublishForm() {
       .catch(error => {
         console.error('Une erreur est survenue :', error);
       });
-    
+    reset();
   }
 
   return (
@@ -72,48 +69,48 @@ function PublishForm() {
             <div className="w-1/2 pr-2">
                 <label className="font-medium mb-2">Author</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('auteur', { required: true })} type="text" placeholder='The author name' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.auteur && <p className="text-red-500 mt-2">{errors.auteur.message}</p>}
+                    <input {...register('auteur', { required: 'c\'est requis' })} type="text" placeholder='The author name' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.auteur && <p className="text-red-500 mt-2">{errors.auteur.message}</p>}
             </div>
             <div className="w-1/2 pl-2">
                 <label className="font-medium mb-2">Details</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('detail', { required: true })} type="text" placeholder='The members teams' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.detail && <p className="text-red-500 mt-2">{errors.detail.message}</p>}
+                    <input {...register('detail', { required: 'c\'est requis' })} type="text" placeholder='The members teams' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.detail && <p className="text-red-500 mt-2">{errors.detail.message}</p>}
             </div>
         </div>
         <div className="mb-3 flex justify-between">
             <div className="w-1/2 pr-2">
                 <label className="font-medium mb-2">Link work</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('hebergerlink', { required: true })} type="text" placeholder='Your hebeger link project' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.hebergerlink && <p className="text-red-500 mt-2">{errors.hebergerlink.message}</p>}
+                    <input {...register('hebergerlink', { required: 'c\'est requis' })} type="text" placeholder='Your hebeger link project' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.hebergerlink && <p className="text-red-500 mt-2">{errors.hebergerlink.message}</p>}
             </div>
             <div className="w-1/2 pl-2">
                 <label className="font-medium mb-2">Link github</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('githublink', { required: true })} type="text" placeholder='Your public link github project' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.githublink && <p className="text-red-500 mt-2">{errors.githublink.message}</p>}
+                    <input {...register('githublink', { required: 'c\'est requis' })} type="text" placeholder='Your public link github project' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.githublink && <p className="text-red-500 mt-2">{errors.githublink.message}</p>}
             </div>
         </div>
         <div className="mb-3 flex justify-between">
             <div className="w-1/2 pr-2">
                 <label className="font-medium mb-2">Type project</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('type', { required: true })} type="text" placeholder='The typeof project' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.type && <p className="text-red-500 mt-2">{errors.type.message}</p>}
+                    <input {...register('type', { required: 'c\'est requis' })} type="text" placeholder='The typeof project' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.type && <p className="text-red-500 mt-2">{errors.type.message}</p>}
             </div>
             <div className="w-1/2 pl-2">
                 <label className="font-medium mb-2">Maket link</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('figmalink', { required: true })} type="text" placeholder='Your public link maket this project' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.figmalink && <p className="text-red-500 mt-2">{errors.figmalink.message}</p>}
+                    <input {...register('figmalink', { required: 'c\'est requis' })} type="text" placeholder='Your public link maket this project' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.figmalink && <p className="text-red-500 mt-2">{errors.figmalink.message}</p>}
             </div>
         </div>
         <label className="font-medium mb-2">Select a projet images to publish</label>

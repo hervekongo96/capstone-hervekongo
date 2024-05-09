@@ -7,7 +7,7 @@ import { createCompteApprenant } from '../../api/apiRequest';
 import { useNavigate } from 'react-router-dom';
 
 function SignUpForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const fileInput = useRef(null);
   const [profilePic, setProfilePic] = useState(null);
   const navigate = useNavigate();
@@ -39,6 +39,7 @@ function SignUpForm() {
   const onSubmit = (data) => {
     data.profileImage = profilePic;
     createCompteApprenant(data, navigate);
+    reset();
   }
 
   return (
@@ -53,80 +54,80 @@ function SignUpForm() {
             <div className="w-1/2 pr-2">
                 <label className="font-medium mb-2">Name</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('nom', { required: true })} type="text" placeholder='The author name' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.nom && <p className="text-red-500 mt-2">{errors.nom.message}</p>}
+                    <input {...register('nom', { required: 'c\'est requis' })} type="text" placeholder='The author name' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                {errors.nom && <p className="text-red-500 mt-2">{errors.nom.message}</p>}
             </div>
             <div className="w-1/2 pl-2">
                 <label className="font-medium mb-2">Middlename</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('postnom', { required: true })} type="text" placeholder='Your middlename' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.postnom && <p className="text-red-500 mt-2">{errors.postnom.message}</p>}
+                    <input {...register('postnom', { required: 'c\'est requis' })} type="text" placeholder='Your middlename' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.postnom && <p className="text-red-500 mt-2">{errors.postnom.message}</p>}
             </div>
         </div>
         <div className="mb-3 flex justify-between">
             <div className="w-1/2 pr-2">
                 <label className="font-medium mb-2">Lastname</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('prenom', { required: true })} type="text" placeholder='Your lastname' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.prenom && <p className="text-red-500 mt-2">{errors.prenom.message}</p>}
+                    <input {...register('prenom', { required: 'c\'est requis' })} type="text" placeholder='Your lastname' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.prenom && <p className="text-red-500 mt-2">{errors.prenom.message}</p>}
             </div>
             <div className="w-1/2 pl-2">
                 <label className="font-medium mb-2">Gender</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('sexe', { required: true })} type="text" placeholder='Your gender' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.sexe && <p className="text-red-500 mt-2">{errors.sexe.message}</p>}
+                    <input {...register('sexe', { required: 'c\'est requis' })} type="text" placeholder='Your gender' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.sexe && <p className="text-red-500 mt-2">{errors.sexe.message}</p>}
             </div>
         </div>
         <div className="mb-3 flex justify-between">
             <div className="w-1/2 pr-2">
                 <label className="font-medium mb-2">Cohorte</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('coherte', { required: true })} type="text" placeholder='Your coherte' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.coherte && <p className="text-red-500 mt-2">{errors.coherte.message}</p>}
+                    <input {...register('coherte', { required: 'c\'est requis' })} type="text" placeholder='Your coherte' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.coherte && <p className="text-red-500 mt-2">{errors.coherte.message}</p>}
             </div>
             <div className="w-1/2 pl-2">
                 <label className="font-medium mb-2">Session</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('session', { required: true })} type="text" placeholder='Your session' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.session && <p className="text-red-500 mt-2">{errors.session.message}</p>}
+                    <input {...register('session', { required: 'c\'est requis' })} type="text" placeholder='Your session' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.session && <p className="text-red-500 mt-2">{errors.session.message}</p>}
             </div>
         </div>
         <div className="mb-3 flex justify-between">
             <div className="w-1/2 pr-2">
                 <label className="font-medium mb-2">Email</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('email', { required: true })} type="text" placeholder='Your email' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.email && <p className="text-red-500 mt-2">{errors.email.message}</p>}
+                    <input {...register('email', { required: 'c\'est requis' })} type="text" placeholder='Your email' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.email && <p className="text-red-500 mt-2">{errors.email.message}</p>}
             </div>
             <div className="w-1/2 pl-2">
                 <label className="font-medium mb-2">Phone</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('phone', { required: true })} type="text" placeholder='Your phone' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.phone && <p className="text-red-500 mt-2">{errors.phone.message}</p>}
+                    <input {...register('phone', { required: 'c\'est requis' })} type="text" placeholder='Your phone' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.phone && <p className="text-red-500 mt-2">{errors.phone.message}</p>}
             </div>
         </div>
         <div className="mb-6 flex justify-between">
             <div className="w-1/2 pr-2">
                 <label className="font-medium mb-2">Password</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('password', { required: true })} type="password" placeholder='Your password' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.password && <p className="text-red-500 mt-2">{errors.password.message}</p>}
+                    <input {...register('password', { required: 'c\'est requis' })} type="password" placeholder='Your password' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.password && <p className="text-red-500 mt-2">{errors.password.message}</p>}
             </div>
             <div className="w-1/2 pl-2">
                 <label className="font-medium mb-2">Password Confirm</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
-                    <input {...register('passwordConfirm', { required: true })} type="password" placeholder='Your password confirm' className='w-48 ml-2 flex-grow focus:outline-none' />
-                    {errors.passwordConfirm && <p className="text-red-500 mt-2">{errors.passwordConfirm.message}</p>}
+                    <input {...register('passwordConfirm', { required: 'c\'est requis' })} type="password" placeholder='Your password confirm' className='w-48 ml-2 flex-grow focus:outline-none' />
                 </div>
+                    {errors.passwordConfirm && <p className="text-red-500 mt-2">{errors.passwordConfirm.message}</p>}
             </div>
         </div>
         <button className='block bg-blue-700 hover:bg-blue-800 text-white w-full py-2 px rounded flex justify-center items-center'>

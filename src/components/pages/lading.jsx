@@ -151,7 +151,7 @@ function Ladingcard() {
                       </div>
                       <p>{selectedItem.detail}</p>
                     </div>
-                    <NavLink to={'/'}>
+                    <NavLink to={'/email-message'}>
                       <button className="block bg-blue-700 hover:bg-blue-800 text-white w-25 py-1 px-2 ml-2 rounded flex justify-center items-center">
                         <FaEnvelope />
                         <span className="ml-2">Envoyer</span>

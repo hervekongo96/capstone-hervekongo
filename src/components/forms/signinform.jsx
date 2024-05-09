@@ -8,7 +8,7 @@ import { useAuth } from '../../provider/authprovider';
 
 function SignInForm() {
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const {login} = useAuth();
 
     const navigate = useNavigate(); 
@@ -18,6 +18,7 @@ function SignInForm() {
         if (isAuthenticated) {
         navigate('/dashboard'); 
         }
+        reset();
     };
 
   return (
@@ -26,17 +27,17 @@ function SignInForm() {
             <label className="font-medium mb-2">Email</label>
             <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
                 <FaEnvelope />
-                <input type="email" {...register('email', { required: true })} placeholder='Enter your email' className='ml-2 flex-grow' />
-                {errors.email && <p className="text-red-500 mt-2">{errors.email.message}</p>}
+                <input type="email" {...register('email', { required: 'L\'adresse e-mail est requise' })} placeholder='Enter your email' className='w-48 ml-2 flex-grow focus:outline-none' />
             </div>
+            {errors.email && <p className="text-red-500 mt-2">{errors.email.message}</p>}
         </div>
         <div className="mb-3">
             <label className="font-medium mb-2">Password</label>
             <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
                 <FaLock />
-                <input type="password" {...register('password', { required: true })} placeholder='Enter your password' className='ml-2 flex-grow' />
-                {errors.password && <p className="text-red-500 mt-2">{errors.password.message}</p>}
+                <input type="password" {...register('password', { required: 'le password est requis' })} placeholder='Enter your password' className='w-48 ml-2 flex-grow focus:outline-none' />
             </div>
+            {errors.password && <p className="text-red-500 mt-2">{errors.password.message}</p>}
         </div>
         <div className="flex justify-between mb-6">
             <label >
