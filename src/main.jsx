@@ -114,6 +114,10 @@ const router = createBrowserRouter (
         {
           path:"/prototype",
           element:<Oeuvretypeprotype />
+        },
+        {
+          path:"/filter",
+          element:<h1>Filter...</h1>
         }
       ]
     }

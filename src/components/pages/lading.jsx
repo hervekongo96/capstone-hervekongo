@@ -11,8 +11,6 @@ function Ladingcard() {
   const alldata = fetchAllData();
   const [selectedItem, setSelectedItem] = useState(null);
 
-  console.log('data:',alldata);
-
   if (!Array.isArray(alldata) || alldata.length === 0) {
     return (
       <div className="flex justify-center items-center h-96">

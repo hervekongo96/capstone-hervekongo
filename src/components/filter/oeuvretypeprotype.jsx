@@ -3,6 +3,7 @@ import { EyeOutlined, GithubOutlined, HeartOutlined, LinkOutlined, LoadingOutlin
 import { Avatar, Card } from 'antd';
 import { Row, Col } from 'antd';
 import { fetchAllData } from '../../api/apiRequest';
+import { FaEnvelope } from 'react-icons/fa';
 
 function Oeuvretypeprotype() {
   const { Meta } = Card;
@@ -105,11 +106,10 @@ function Oeuvretypeprotype() {
           </Col>
         ))}
       </Row>
-
       {selectedItem && (
-        <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
-            <div className="flex justify-end mb-4">
+        <div className="fixed top-0 left-0 w-screen h-screen bg-gray-800 bg-opacity-50 flex justify-center items-center z-50 overflow-y-auto">
+          <div className="bg-white sm:mx-0 w-full sm:w-auto max-h-[90%] overflow-y-auto">
+            <div className="flex justify-end mt-4 mb-4 mr-2">
               <button
                 className="text-gray-500 hover:text-gray-700"
                 onClick={() => setSelectedItem(null)}
@@ -130,38 +130,41 @@ function Oeuvretypeprotype() {
                 </svg>
               </button>
             </div>
-            <div className="mb-4">
-              {selectedItem.profile2 && (
-                <img
-                  src={selectedItem.profile2}
-                  alt={selectedItem.auteur}
-                  className="w-full h-auto rounded-lg"
-                />
-              )}
-            </div>
-            <hr />
-            <div className="flex items-center mb-4">
-              {(selectedItem.profile2 || selectedItem.profile3) && (
-                <div className="mr-4">
-                  <Avatar src={selectedItem.profile2 || selectedItem.profile3 || ''} />
+            <div className="px-4 pb-4">
+              <div className="w-full sm:w-[50rem] mx-auto">
+                <div className="h-[400px] w-full bg-cover bg-center" style={{ backgroundImage: `url(${selectedItem.profile2})` }} />
+                <div className="flex justify-center mt-4 gap-4 flex-wrap">
+                  <div
+                    className="w-[200px] h-[150px] bg-cover bg-center cursor-pointer"
+                    style={{ backgroundImage: `url(${selectedItem.profile1})` }}
+                  ></div>
+                  <div
+                    className="w-[200px] h-[150px] bg-cover bg-center cursor-pointer"
+                    style={{ backgroundImage: `url(${selectedItem.profile2})` }}
+                  ></div>
+                  <div
+                    className="w-[200px] h-[150px] bg-cover bg-center cursor-pointer"
+                    style={{ backgroundImage: `url(${selectedItem.profile3})` }}
+                  ></div>
                 </div>
-              )}
-              <div className="flex-1">
-                <h2 className="text-xl font-bold">{selectedItem.auteur}</h2>
-                <p>
-                  Type: {selectedItem.type} | Date: {new Date(selectedItem.date_publication).toLocaleString()}
-                </p>
               </div>
-            </div>
-            <hr />
-            <div className="flex justify-between">
-              <div>
-                <p>Likes: {selectedItem.like} K</p>
-                <p>Partages: {selectedItem.share} K</p>
-              </div>
-              <div>
-                <GithubOutlined />
-                <LinkOutlined />
+              <div className="flex justify-center">
+                <div className="mx-4 my-8 w-full max-w-md">
+                  <div className="flex items-center p-4">
+                    <img src={`${selectedItem.profile_auteur}`} alt="Avatar" className="h-16 w-16 rounded-full mr-4" />
+                    <div>
+                      <h3 className="font-bold">{selectedItem.auteur}</h3>
+                      <div className="text-gray-500">
+                        <a href={`${selectedItem.hebergerlink}`} className="hover:underline">Application</a> | <a href={`${selectedItem.githublink}`} className="hover:underline">GitHub</a> | <a href={`${selectedItem.figmalink}`} className="hover:underline">Figma</a>
+                      </div>
+                      <p>{selectedItem.detail}</p>
+                    </div>
+                    <button className="block bg-blue-700 hover:bg-blue-800 text-white w-25 py-1 px-2 ml-2 rounded flex justify-center items-center">
+                      <FaEnvelope />
+                      <span className="ml-2">Envoyer</span>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
