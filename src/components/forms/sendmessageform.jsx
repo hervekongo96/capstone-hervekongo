@@ -1,51 +1,58 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const SendMessageForm = () => {
-  const [to, setTo] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Ici, vous pouvez gérer l'envoi du message
-    console.log({ to, subject, message });
-    setTo('');
-    setSubject('');
-    setMessage('');
+  const onSubmit = (data) => {
+    console.log('Envoi du message:', data);
+    reset();
   };
 
   return (
-    <div className="flex flex-col p-6 bg-white rounded-md shadow-md">
-      <h2 className="mb-4 text-lg font-semibold text-gray-700">Contact Me</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col">
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="mb-4">
+        <label htmlFor="to" className="block font-medium mb-2">
+          À :
+        </label>
         <input
           type="email"
-          className="mb-2 p-2 border rounded-md w-96"
-          placeholder="À"
-          value={to}
-          onChange={(e) => setTo(e.target.value)}
+          id="to"
+          className={`border rounded-md px-3 py-2 w-full ${errors.to ? 'border-red-500' : 'border-gray-300'}`}
+          {...register('to', { required: 'L\'adresse e-mail est requise' })}
         />
+        {errors.to && <p className="text-red-500 mt-2">{errors.to.message}</p>}
+      </div>
+      <div className="mb-4">
+        <label htmlFor="subject" className="block font-medium mb-2">
+          Sujet :
+        </label>
         <input
           type="text"
-          className="mb-2 p-2 border rounded-md"
-          placeholder="Sujet"
-          value={subject}
-          onChange={(e) => setSubject(e.target.value)}
+          id="subject"
+          className={`border rounded-md px-3 py-2 w-full ${errors.subject ? 'border-red-500' : 'border-gray-300'}`}
+          {...register('subject', { required: 'Le sujet est requis' })}
         />
+        {errors.subject && <p className="text-red-500 mt-2">{errors.subject.message}</p>}
+      </div>
+      <div className="mb-4">
+        <label htmlFor="message" className="block font-medium mb-2">
+          Message :
+        </label>
         <textarea
-          className="mb-4 p-2 border rounded-md"
-          placeholder="Tapez votre message ici..."
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <button
-          type="submit"
-          className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-        >
-          Send
-        </button>
-      </form>
-    </div>
+          id="message"
+          className={`border rounded-md px-3 py-2 w-full h-32 resize-none ${errors.message ? 'border-red-500' : 'border-gray-300'}`}
+          {...register('message', { required: 'Le message est requis' })}
+        ></textarea>
+        {errors.message && <p className="text-red-500 mt-2">{errors.message.message}</p>}
+      </div>
+      <button
+        type="submit"
+        className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md"
+      >
+        Envoyer
+      </button>
+    </form>
   );
 };
 

@@ -73,12 +73,14 @@ function PublishForm() {
                 <label className="font-medium mb-2">Author</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
                     <input {...register('auteur', { required: true })} type="text" placeholder='The author name' className='w-48 ml-2 flex-grow focus:outline-none' />
+                    {errors.auteur && <p className="text-red-500 mt-2">{errors.auteur.message}</p>}
                 </div>
             </div>
             <div className="w-1/2 pl-2">
                 <label className="font-medium mb-2">Details</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
                     <input {...register('detail', { required: true })} type="text" placeholder='The members teams' className='w-48 ml-2 flex-grow focus:outline-none' />
+                    {errors.detail && <p className="text-red-500 mt-2">{errors.detail.message}</p>}
                 </div>
             </div>
         </div>
@@ -87,12 +89,14 @@ function PublishForm() {
                 <label className="font-medium mb-2">Link work</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
                     <input {...register('hebergerlink', { required: true })} type="text" placeholder='Your hebeger link project' className='w-48 ml-2 flex-grow focus:outline-none' />
+                    {errors.hebergerlink && <p className="text-red-500 mt-2">{errors.hebergerlink.message}</p>}
                 </div>
             </div>
             <div className="w-1/2 pl-2">
                 <label className="font-medium mb-2">Link github</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
                     <input {...register('githublink', { required: true })} type="text" placeholder='Your public link github project' className='w-48 ml-2 flex-grow focus:outline-none' />
+                    {errors.githublink && <p className="text-red-500 mt-2">{errors.githublink.message}</p>}
                 </div>
             </div>
         </div>
@@ -101,12 +105,14 @@ function PublishForm() {
                 <label className="font-medium mb-2">Type project</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
                     <input {...register('type', { required: true })} type="text" placeholder='The typeof project' className='w-48 ml-2 flex-grow focus:outline-none' />
+                    {errors.type && <p className="text-red-500 mt-2">{errors.type.message}</p>}
                 </div>
             </div>
             <div className="w-1/2 pl-2">
                 <label className="font-medium mb-2">Maket link</label>
                 <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
                     <input {...register('figmalink', { required: true })} type="text" placeholder='Your public link maket this project' className='w-48 ml-2 flex-grow focus:outline-none' />
+                    {errors.figmalink && <p className="text-red-500 mt-2">{errors.figmalink.message}</p>}
                 </div>
             </div>
         </div>
@@ -136,18 +142,3 @@ function PublishForm() {
 }
 
 export default PublishForm
-
-
-// "id": 28,
-//     "auteur": "samuela",
-//     "type": "marketing",
-//     "date_publication": "2024-05-05T16:29:56.759Z",
-//     "hebergerlink": "www",
-//     "githublink": "www",
-//     "figmalink": "www",
-//     "profile1": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/cb/b0/86/exterior.jpg?w=1100&h=-1&s=1",
-//     "profile2": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/cb/b0/86/exterior.jpg?w=1100&h=-1&s=1",
-//     "profile3": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/cb/b0/86/exterior.jpg?w=1100&h=-1&s=1",
-//     "like": 1,
-//     "share": 1,
-//     "CompteId": null

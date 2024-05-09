@@ -4,6 +4,7 @@ import { Avatar, Card } from 'antd';
 import { Row, Col } from 'antd';
 import { fetchAllData } from '../../api/apiRequest';
 import { FaEnvelope } from 'react-icons/fa';
+import { Link, NavLink } from 'react-router-dom';
 
 function Ladingcard() {
 
@@ -146,14 +147,16 @@ function Ladingcard() {
                     <div>
                       <h3 className="font-bold">{selectedItem.auteur}</h3>
                       <div className="text-gray-500">
-                        <a href={`${selectedItem.hebergerlink}`} className="hover:underline">Application</a> | <a href={`${selectedItem.githublink}`} className="hover:underline">GitHub</a> | <a href={`${selectedItem.figmalink}`} className="hover:underline">Figma</a>
+                        <Link href={`${selectedItem.hebergerlink}`} className="hover:underline">Application</Link> | <Link href={`${selectedItem.githublink}`} className="hover:underline">GitHub</Link> | <Link href={`${selectedItem.figmalink}`} className="hover:underline">Figma</Link>
                       </div>
                       <p>{selectedItem.detail}</p>
                     </div>
-                    <button className="block bg-blue-700 hover:bg-blue-800 text-white w-25 py-1 px-2 ml-2 rounded flex justify-center items-center">
-                      <FaEnvelope />
-                      <span className="ml-2">Envoyer</span>
-                    </button>
+                    <NavLink to={'/'}>
+                      <button className="block bg-blue-700 hover:bg-blue-800 text-white w-25 py-1 px-2 ml-2 rounded flex justify-center items-center">
+                        <FaEnvelope />
+                        <span className="ml-2">Envoyer</span>
+                      </button>
+                    </NavLink>
                   </div>
                 </div>
               </div>

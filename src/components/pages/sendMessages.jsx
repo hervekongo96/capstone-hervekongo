@@ -3,16 +3,11 @@ import SendMessageForm from '../forms/sendmessageform'
 
 function SendMessages() {
   return (
-    <div className='flex flex-col flex-auto w-full h-screen'>
-        <div className="h-full">
-            <div className="grid grid-cols-1 h-full">
-                <div className="col-span-2 flex justify-center items-center">
-                    <div className="w-auto px-8">
-                        <SendMessageForm />
-                     </div>
-                </div>
-            </div>
-        </div>
+    <div className='w-full px-[30rem]'>
+      <div className="mt-4 p-6">
+        <h2 className="text-2xl font-bold mb-4">Nouveau message</h2>
+        <SendMessageForm />
+      </div>               
     </div>
   )
 }

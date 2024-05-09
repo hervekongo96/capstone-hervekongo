@@ -27,6 +27,7 @@ function SignInForm() {
             <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
                 <FaEnvelope />
                 <input type="email" {...register('email', { required: true })} placeholder='Enter your email' className='ml-2 flex-grow' />
+                {errors.email && <p className="text-red-500 mt-2">{errors.email.message}</p>}
             </div>
         </div>
         <div className="mb-3">
@@ -34,6 +35,7 @@ function SignInForm() {
             <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
                 <FaLock />
                 <input type="password" {...register('password', { required: true })} placeholder='Enter your password' className='ml-2 flex-grow' />
+                {errors.password && <p className="text-red-500 mt-2">{errors.password.message}</p>}
             </div>
         </div>
         <div className="flex justify-between mb-6">
