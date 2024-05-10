@@ -31,6 +31,7 @@ function Navbar() {
                         <Link to={'/sign-in'}>
                             <Primarybutton value={"Login"} className={"bg-black text-white px-5 py-1 mr-2 font-semibold tracking-widest text-lg rounded-full cursor-pointer"} />
                         </Link>
+                        <Link to={'/sign-admin'}>Admin</Link>
                     </div>
                 </div>
                 <div className="md:hidden flex items-center">
