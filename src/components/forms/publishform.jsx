@@ -113,6 +113,13 @@ function PublishForm() {
                     {errors.figmalink && <p className="text-red-500 mt-2">{errors.figmalink.message}</p>}
             </div>
         </div>
+        <div className="mb-3">
+            <label className="font-medium mb-2">Email</label>
+            <div className='w-full border rounded-md bg-transparent border-gray-400 p-3 flex items-center'>
+                <input type="email" {...register('email', { required: 'L\'adresse e-mail est requise' })} placeholder='Enter your email' className='w-48 ml-2 flex-grow focus:outline-none' />
+            </div>
+            {errors.email && <p className="text-red-500 mt-2">{errors.email.message}</p>}
+        </div>
         <label className="font-medium mb-2">Select a projet images to publish</label>
         <div className="mb-3 mt-3 flex justify-center gap-4">
             <div onClick={handleProfilePicClick(setProfilePic1, fileInput1)} className='w-28 h-24 rounded-md border border-gray-400 flex items-center justify-center cursor-pointer'>

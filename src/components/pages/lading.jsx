@@ -146,10 +146,12 @@ function Ladingcard() {
                     <img src={`${selectedItem.profile_auteur}`} alt="Avatar" className="h-16 w-16 rounded-full mr-4" />
                     <div>
                       <h3 className="font-bold">{selectedItem.auteur}</h3>
+                      <p>{selectedItem.email}</p>
                       <div className="text-gray-500">
                         <Link href={`${selectedItem.hebergerlink}`} className="hover:underline">Application</Link> | <Link href={`${selectedItem.githublink}`} className="hover:underline">GitHub</Link> | <Link href={`${selectedItem.figmalink}`} className="hover:underline">Figma</Link>
                       </div>
                       <p>{selectedItem.detail}</p>
+                      <p>{selectedItem.email}</p>
                     </div>
                     <NavLink to={'/email-message'}>
                       <button className="block bg-blue-700 hover:bg-blue-800 text-white w-25 py-1 px-2 ml-2 rounded flex justify-center items-center">

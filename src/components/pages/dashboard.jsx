@@ -9,9 +9,6 @@ import { useAuth } from '../../provider/authprovider';
 
 const Dashboardpage = () => {
     const { user } = useAuth();
-
-    console.log('user',user);
-
     const [open, setOpen] = useState(true);
     const Menus = [
         {

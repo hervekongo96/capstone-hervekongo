@@ -1,11 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
+
 const SendMessageForm = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-    console.log('Envoi du message:', data);
+    console.log(data);
     reset();
   };
 

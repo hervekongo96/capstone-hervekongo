@@ -9,12 +9,13 @@ const url_all_oeuvres_from_apprenant = 'api/all-oeuvres';
 const url_all_compte ='api/all-comptes';
 const url_all_oeuvres_by_apprenant = 'api/oeuvres';
 const url_publication_oeuvre_by_apprenant = 'work/publish-work';
-const url_publication_oeuvre_by_admin = 'work/publish-public';
+const url_publication_oeuvre_by_admin = 'work/publishadmin';
 const url_all_publish = 'all/publish';
+const url_delete_publication = 'oeuvrespublish'
 
 
 const fetchAllData = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(null); 
 
   useEffect(() => {
     const getData = async () => {
@@ -179,6 +180,8 @@ const publicationOevreByApprenant = (newOeuvre, token) => {
 }
 
 const publicationOevreByAdmin = (newOeuvre, token) => {
+
+  console.log("url", `${url_base}${url_publication_oeuvre_by_admin}`);
   fetch(`${url_base}${url_publication_oeuvre_by_admin}`, {
     method: 'POST',
     headers : {
@@ -193,6 +196,24 @@ const publicationOevreByAdmin = (newOeuvre, token) => {
   })
 }
 
+const deletePublication = (oeuvreId, token) => {
+  fetch(`${url_base}${url_delete_publication}/${oeuvreId}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert(`Réponse du serveur : ${data.message}`);
+  })
+  .catch(error => {
+    console.error('Erreur lors de la suppression de l\'oeuvre :', error);
+    alert('Une erreur est survenue lors de la suppression de l\'oeuvre.');
+  });
+};
+
 
 
 export {
@@ -204,5 +225,6 @@ export {
   getAllCompte,
   getWorkByApprenant,
   publicationOevreByApprenant,
-  publicationOevreByAdmin
+  publicationOevreByAdmin,
+  deletePublication
 };

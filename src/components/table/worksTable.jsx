@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllOeuvrsFromApprenant, publicationOevreByAdmin } from '../../api/apiRequest';
+import { deletePublication, getAllOeuvrsFromApprenant, publicationOevreByAdmin } from '../../api/apiRequest';
 import { useAuth } from '../../provider/authprovider';
 
 function WorksTable() {
@@ -21,12 +21,8 @@ function WorksTable() {
     fetchData();
   }, [token]);
 
-  const handlePublish = (item) => {
-    item.like = 1
-    item.share = 1
-    item.AdministrateurId = user.id
-    console.log(item);
-    publicationOevreByAdmin(item, token)
+  const handleDelete = (item) => {
+     deletePublication(item.id, token)
   };
 
   return (
@@ -82,7 +78,7 @@ function WorksTable() {
                           <img src={item.profile1} alt="Avatar" className="h-10 w-10 rounded-full" />
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <button className='block bg-blue-700 hover:bg-blue-800 text-white w-full py-1 px-2 rounded flex justify-center items-center' onClick={() => handlePublish(item)}>Publish</button>
+                          <button className="block bg-red-700 hover:bg-blue-800 text-white w-full py-1 px-2 rounded flex justify-center items-center" onClick={() => handleDelete(item)}>Publish</button>
                         </td>
                       </tr>
                     ))}
